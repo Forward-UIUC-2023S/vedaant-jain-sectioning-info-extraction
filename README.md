@@ -62,7 +62,7 @@ Include text description of all the important files / componenets in your repo.
 * `data/title_annotated_images/`: the result.json files contain annotations for the images of resume pages labelling the title bounding boxes
 * `data/resume_images/`: contains images of resume pages corresponding to the resume pdfs present in the resume_pdfs folder, Note all resume images have not been included because of size but can be extracted from the corresponding pdfs.
 
-
+```
 
 ## Functional Design (Usage)
 Describe all functions / classes that will be available to users of your module. This section should be oriented towards users who want to _apply_ your module! This means that you should **not** include internal functions that won't be useful to the user in this section. You can think of this section as a documentation for the functions of your package. Be sure to also include a short description of what task each function is responsible for if it is not apparent. You only need to provide the outline of what your function will input and output. You do not need to write the pseudo code of the body of the functions. 
