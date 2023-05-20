@@ -131,32 +131,12 @@ Note for Publication Model, and Employment model, the output fields are: [Author
 
 In this section, please list all know issues, limitations, and possible areas for future improvement. For example:
 
-* High false negative rate for document classier. 
-* Over 10 min run time for one page text.
-* Replace linear text search with a more efficient text indexing library (such as whoosh)
-* Include an extra label of "no class" if all confidence scores low. 
-
-
-## Change log
-
-Use this section to list the _major_ changes made to the module if this is not the first iteration of the module. Include an entry for each semester and name of person working on the module. For example 
-
-Fall 2021 (Student 1)
-* Week of 04/11/2022: added two new functions responsible for ...
-* Week of 03/14/2022: fixed bug and added support for ...
-
-Spring 2021 (Student 2)
-...
-
-Fall 2020 (Student 3)
-...
+* Lack of a good method to distinguish between headings and sub-headings 
+* Using too many models at once especially for IE for each section.
+* OCR-corrector based on the text of the pdf.
 
 
 ## References 
 include links related to datasets and papers describing any of the methodologies models you used. E.g. 
 
-* Dataset: https://www.kaggle.com/Cornell-University/arxiv 
-* BERT paper: Jacob Devlin, Ming-Wei Chang, Kenton Lee, & Kristina Toutanova. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.
-Include a brief summary of your module here. For example: this module is responsible for classifying pieces of text using a neural network on top of BERT. 
-
-Note: if this is a second or latter iteration of a module, you may reuse the old iteration's README as a starting point (you should still update it). 
+* 
