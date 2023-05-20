@@ -118,6 +118,7 @@ Note for Publication Model, and Employment model, the output fields are: [Author
  -- DiT also recognises sub-headings as headings. We differentiate between them using a set of common headings that academica resumes have. We compare the text of the headings and sub-headings to the set of common-headings using the Word2Vec embeddings. We can do this because academic resumes follow a common set of headings and sub-headings.
 - After sectioning the resume into respective sections, we extract text using the easyOCR module.
 - Information is then extracted from the text using models based on BERT fine-tuned on a small dataset to extract information like degree, university, designation.
+- The model for information extraction is based on sequence tagging approach using the BIO tag.
 
 
 ![design architecture](https://github.com/Forward-UIUC-2021F/guidelines/blob/main/template_diagrams/sample-design.png)
