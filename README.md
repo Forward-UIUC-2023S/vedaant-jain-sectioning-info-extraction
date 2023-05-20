@@ -94,7 +94,7 @@ Note for Publication Model, and Employment model, the output fields are: [Author
     'Employment': [... ],
     'Publication':  [ ...]}
 ```
-* Takes as input a list of image(numpy array, RGB), representing the pages of a resume, outputs the information in those pages as a dictionary, inputs also include education, employment, and publication model if the user wishes to override the existing models present as members of the ResumeInfoExtractor instance.
+* Takes as input a list of images(numpy array, RGB), representing the pages of a resume, outputs the information in those pages as a dictionary, inputs also include education, employment, and publication model if the user wishes to override the existing models present as members of the ResumeInfoExtractor instance.
 ```python, ResumeInfoExtractor.py
     def Extract_Info(self, images, education_model = None, employment_model = None, publication_model = None):
 ```
@@ -113,13 +113,11 @@ Note for Publication Model, and Employment model, the output fields are: [Author
         return (Sections, texts)
 ```
 ## Algorithmic Design 
-This section should contain a detailed description of all different components and models that you will be using to achieve your task as well as a diagram. Here is a very basic example of what you should include:
-
-We generate vector representations for each document using BERT, we then train a simple, single-layer fully connected neural network using the documents and labels from the training set.
-
-First, we select a set of labeled text documents `d_1, d_2, …, d_N` from the arxiv dataset available on Kaggle. The documents are randomly partitioned into two sets for training and testing. We use the BERT language model's output as the input to the neural network. Only the weights of the neural network are modified during training. 
-
-After training, we run the trained model to classify the test documents into one of the classes in C. Below is a picture of the architecture of the module. The diagram below was constructed using draw.io 
+- First we section a resume into sections based on titles.
+ -- To do this, we use the DiT module from Microsoft to recognise the titles in images of resume pages, then as almost all academic resumes are vertically aligned, we divide the resume image into different sections. This is done by the SectionDivider Module.
+ -- DiT also recognises sub-headings as headings. We differentiate between them using a set of common headings that academica resumes have. We compare the text of the headings and sub-headings to the set of common-headings using the Word2Vec embeddings. We can do this because academic resumes follow a common set of headings and sub-headings.
+- After sectioning the resume into respective sections, we extract text using the easyOCR module.
+- Information is then extracted from the text using models based on BERT fine-tuned on a small dataset to extract information like degree, university, designation.
 
 
 ![design architecture](https://github.com/Forward-UIUC-2021F/guidelines/blob/main/template_diagrams/sample-design.png)
