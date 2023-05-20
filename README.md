@@ -21,34 +21,32 @@ List the steps needed to install your module's dependencies:
 It is very important to also include an overall breakdown of your repo's file structure. Let people know what is in each directory and where to look if they need something specific. This will also let users know how your repo needs to structured so that your module can work properly
 
 ```
-firstname-lastname-repo-name/
+vedaant-jain-sectioning-info-extraction/
     - requirements.txt
     - data/ 
-        -- eval_articles.csv
-        -- train_articles.csv
-        -- Keywords_Springer.csv
-    - trained_models/
-        -- best.model
-    - src/
-        -- create_train_data/
-            --- query_google.py 
-            --- extract_fInclude a brief summary of your module here. For example: this module is responsible for classifying pieces of text using a neural network on top of BERT. 
-
-Note: if this is a second or latter iteration of a module, you may reuse the old iteration's README as a starting point (you should still update it). 
-
-## Setup
-
-List the steps needed to install your module's dependencies: 
-
-1. Python version: 3.9.6, cuda version: 11.1.
-
-2. Install DiT and detectron2 using the instructions here: https://github.com/microsoft/unilm/tree/master/dit
-
-3. Then run the requirements.txt file in the root folder in this repository. 
-
-4. Include instructions on how to run any tests you have written to verify your module is working properly.
-
-It is very important to also include an overall breakdown of your repo's file structure. Let people know what is in each directory and where to look if they need something specific. This will also let users know how your repo needs to structured so that your module can work properly
+        -- text_data/
+            --- contains data in CONLL format for sequence tagging for education, employment, publications
+        -- title_annotated_images/
+            --- result(1-4).json
+            --- result(5- ).json
+                ---- this files contain annotations for the images of resume pages labelling the title bounding boxes
+        -- resume_pdfs/
+        --resume_images/
+    - Inference/
+        -- Education_Model.py
+        -- Employment_Model.py
+        -- Publication_Model.py
+        -- ResumeInfoExtractor.py
+        -- ResumeSeqTagger.py
+        -- SectionDivider.py
+        -- RunInference.ipynb
+        -- RunSectionDivider.ipynb
+    - Text-Based-IE/
+        -- EducationIE.ipynb
+        -- EmploymentIE.ipynb
+        -- PublicationsIE.ipynb
+    - title-detection-evaluation/
+        -- DivideImage.ipynb
 
 ```
 firstname-lastname-repo-name/
