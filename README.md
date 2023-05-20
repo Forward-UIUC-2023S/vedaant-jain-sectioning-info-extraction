@@ -88,7 +88,7 @@ Note for Publication Model, and Employment model, the output fields are: [Author
 
 * Takes as input an image(numpy array, RGB), representing the page of a resume, outputs the information in that image as a dictionary, inputs also include education, employment, and publication model if the user wishes to override the existing models present as members of the ResumeInfoExtractor instance.
 ```python, ResumeInfoExtractor.py
-    def Extract_InfoAll(self, images, education_model = None, employment_model = None, publication_model = None):
+    def Extract_InfoAll(self, image, last_title=None, education_model = None, employment_model = None, publication_model = None):
         ... 
         return {'Education': [...],
     'Employment': [... ],
@@ -97,6 +97,20 @@ Note for Publication Model, and Employment model, the output fields are: [Author
 * Takes as input a list of image(numpy array, RGB), representing the pages of a resume, outputs the information in those pages as a dictionary, inputs also include education, employment, and publication model if the user wishes to override the existing models present as members of the ResumeInfoExtractor instance.
 ```python, ResumeInfoExtractor.py
     def Extract_Info(self, images, education_model = None, employment_model = None, publication_model = None):
+```
+
+* Takes as input a word2vec model, iou_threshold for creating sections, config_file(example present in the repository under the Inference directory) name for configuring the detectron2 base constructor for SectionDivider class.
+```python, SectionDivider.py
+    def __init__(self, config_file = "config.yml", titles="default", iou_threshold=0.3, w2v_model = None):
+        ... 
+        return None
+```
+
+* Takes as input an image(numpy array, RGB), representing the page of a resume, outputs the sections of the image as a list of np.array and their titles as a list of strings. 
+```python, SectionDivider.py
+    GetSections(image)
+        ... 
+        return (Sections, texts)
 ```
 ## Algorithmic Design 
 This section should contain a detailed description of all different components and models that you will be using to achieve your task as well as a diagram. Here is a very basic example of what you should include:
