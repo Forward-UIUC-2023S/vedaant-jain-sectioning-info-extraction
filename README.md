@@ -60,26 +60,44 @@ vedaant-jain-sectioning-info-extraction/
 * `data/resume_images/`: contains images of resume pages corresponding to the resume pdfs present in the resume_pdfs folder, Note all resume images have not been included because of size but can be extracted from the corresponding pdfs.
 
 ## Functional Design (Usage)
-Describe all functions / classes that will be available to users of your module. This section should be oriented towards users who want to _apply_ your module! This means that you should **not** include internal functions that won't be useful to the user in this section. You can think of this section as a documentation for the functions of your package. Be sure to also include a short description of what task each function is responsible for if it is not apparent. You only need to provide the outline of what your function will input and output. You do not need to write the pseudo code of the body of the functions. 
 
-* Takes as input a list of strings, each representing a document and outputs confidence scores for each possible class / field in a dictionary
-```python
-    def classify_docs(docs: list[str]):
+* Takes as input a string text, representing the text in a section, returns the information in the string depending which model called it. 
+```python, Education_Model.py
+    def Get_InfoAll(text: str):
         ... 
-        return [
-            { 'cs': cs_score, 'math': math_score, ..., 'chemistry': chemistry_score },
-            ...
-        ]
+        return {'Degree': ['PH. D. in Computer Science', ...],
+    'University': ['University of Florida, Gville, USA' , ... ],
+    'Thesis':  ['Designing and Leveraging Trustworthy Provenance - Aware Architectures', ...]}
+```
+Note for Publication Model, and Employment model, the output fields are: [Authors, Journal, Title] and [Designation, Employer] respectively.
+
+* Takes as input an image(numpy array, RGB), representing the a section, Outputs the information present in the image of resume section 
+```python, Education_Model.py
+    def Get_Info(image: np.array):
+        ... 
+        return {'Degree': ['PH. D. in Computer Science', ...],
+    'University': ['University of Florida, Gville, USA' , ... ],
+    'Thesis':  ['Designing and Leveraging Trustworthy Provenance - Aware Architectures', ...]}
+```
+Note for Publication Model, and Employment model, the output fields are: [Authors, Journal, Title] and [Designation, Employer] respectively.
+
+* Takes as input a sectiondivider object, checkpoints for education, employment, and publication model, a title map to separate headings and subheadings and their categories into education, employment, publication. The only required parameter is SectionDivider object, the rest are optional, and have default values. The model checkpoint's have the default value in the format "{}_bert_seq_tag" where either of education, employment, or publication replaces the {}. Another parameter is the CreateAllModels(default is False), unless passed as true, the model for information extraction will not be created and will have to be passed as arguments to methods that carry out the information extraction(see below).  
+```python, ResumeInfoExtractor.py
+    def __init__(self, section_divider, Create_All_Models = False, education_model_checkpoint = None, employment_model_checkpoint = None, publication_model_checkpoint = None, title_map = None) -> None:
 ```
 
-* Outputs the weights as a numpy array of shape `(num_classes, num_features)` of the trained neural network 
-```python
-    def get_nn_weights():
-        ...
-        return W
+* Takes as input an image(numpy array, RGB), representing the page of a resume, outputs the information in that image as a dictionary, inputs also include education, employment, and publication model if the user wishes to override the existing models present as members of the ResumeInfoExtractor instance.
+```python, ResumeInfoExtractor.py
+    def Extract_InfoAll(self, images, education_model = None, employment_model = None, publication_model = None):
+        ... 
+        return {'Education': [...],
+    'Employment': [... ],
+    'Publication':  [ ...]}
 ```
-
-
+* Takes as input a list of image(numpy array, RGB), representing the pages of a resume, outputs the information in those pages as a dictionary, inputs also include education, employment, and publication model if the user wishes to override the existing models present as members of the ResumeInfoExtractor instance.
+```python, ResumeInfoExtractor.py
+    def Extract_Info(self, images, education_model = None, employment_model = None, publication_model = None):
+```
 ## Algorithmic Design 
 This section should contain a detailed description of all different components and models that you will be using to achieve your task as well as a diagram. Here is a very basic example of what you should include:
 
