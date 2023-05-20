@@ -1,0 +1,8 @@
+easyocr
+sentence-transformers
+datasets
+transformers
+accelerate
+seqeval
+evaluate
+gensim==3.6.0
