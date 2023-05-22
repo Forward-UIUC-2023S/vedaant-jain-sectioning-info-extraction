@@ -121,9 +121,6 @@ Note for Publication Model, and Employment model, the output fields are: [Author
 - The model for information extraction is based on sequence tagging approach using the BIO tag.
 
 
-![design architecture](https://github.com/Forward-UIUC-2021F/guidelines/blob/main/template_diagrams/sample-design.png)
-
-
 
 
 
@@ -139,4 +136,18 @@ In this section, please list all know issues, limitations, and possible areas fo
 ## References 
 include links related to datasets and papers describing any of the methodologies models you used. E.g. 
 
-* 
+[1] Cheng, Z., Zhang, P., Li, C., Liang, Q., Xu, Y., Li, P., Pu, S., Niu, Y., Wu,
+F.: TRIE++: Towards End-to-End Information Extraction from Visually Rich
+Documents (2022)
+[2] Xu, Y., Xu, Y., Lv, T., Cui, L., Wei, F., Wang, G., Lu, Y., Florencio, D., Zhang,
+C., Che, W., Zhang, M., Zhou, L.: LayoutLMv2: Multi-modal Pre-training for
+Visually-Rich Document Understanding (2022)
+[3] Li, J., Xu, Y., Lv, T., Cui, L., Zhang, C., Wei, F.: DiT: Self-supervised Pre-training
+for Document Image Transformer (2022)
+[4] Alzaidy, R., Caragea, C., Giles, C.L.: Bi-lstm-crf sequence labeling for keyphrase
+extraction from scholarly documents. In: The World Wide Web Conference. WWW
+’19, pp. 2551–2557. Association for Computing Machinery, New York, NY, USA
+(2019). https://doi.org/10.1145/3308558.3313642 . https://doi-org.proxy2.library.
+illinois.edu/10.1145/3308558.3313642
+[5] He, H., Choi, J.D.: Establishing Strong Baselines for the New Decade: Sequence
+Tagging, Syntactic and Semantic Parsing with BERT (2020)
