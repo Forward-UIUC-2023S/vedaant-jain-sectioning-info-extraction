@@ -113,8 +113,9 @@ Note for Publication Model, and Employment model, the output fields are: [Author
         return (Sections, texts)
 ```
 
-## Video:
-- https://drive.google.com/file/d/1ouqA8Q1u7c4lR6wS3wNqmM66S_FN9BY4/view?usp=share_link
+## Video Link:
+https://drive.google.com/file/d/1ouqA8Q1u7c4lR6wS3wNqmM66S_FN9BY4/view?usp=share_link
+
 ## Algorithmic Design 
 - First we section a resume into sections based on titles.
  -- To do this, we use the DiT module from Microsoft to recognise the titles in images of resume pages, then as almost all academic resumes are vertically aligned, we divide the resume image into different sections. This is done by the SectionDivider Module.
