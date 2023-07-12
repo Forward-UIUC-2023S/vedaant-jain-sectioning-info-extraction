@@ -4,7 +4,7 @@
 
 ## Overview
 
-This module is responsible for sectioning an academic resume into sections according to titles, and then using a fine-tuned version of BERT to extract information from education, employment, and publication sections. 
+This module is responsible for sectioning an academic resume into sections according to titles, and then using a fine-tuned version of BERT to extract information from education, employment, and publication sections. Project Report: [Click here] (ResearchReportSpring2023.pdf)
 
 ## Setup
 
